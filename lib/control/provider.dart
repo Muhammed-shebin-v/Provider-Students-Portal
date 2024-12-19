@@ -24,7 +24,13 @@ class StudentProvider extends ChangeNotifier {
   void updateStudent(String id, String name, int age,String sex ,String batch, int year) {
     final index = _students.indexWhere((student) => student.id == id);
     if (index >= 0) {
-      _students[index] = StudentModel(id: id, name: name, age: age,sex:sex,batch: batch,year: year);
+      _students[index] = StudentModel(
+        id: id, 
+        name: name, 
+        age: age,
+        sex:sex,
+        batch: batch,
+        year: year);
       notifyListeners();
     }
   }
