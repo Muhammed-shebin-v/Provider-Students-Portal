@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_stdnt_mngmnt/control/provider.dart';
+import 'package:provider_stdnt_mngmnt/controls/provider.dart';
 import 'package:provider_stdnt_mngmnt/view/add_student.dart';
 import 'package:provider_stdnt_mngmnt/view/edit_student.dart';
 
@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                 fontSize: 22,
               ),
             ),
-            Gap(20),
+            const Gap(20),
             SizedBox(
               height: 500,
               child: ListView.separated(
@@ -106,14 +106,14 @@ class HomeScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     Text('Age : ${students[index].age}'),
-                                    Gap(50),
-                                    Text('Sex : ${students[index].sex}'),
+                                    const Gap(50),
+                                    Text('Sex : ${students[index].roll}'),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     Text('Batch : ${students[index].batch}'),
-                                    Gap(30),
+                                    const Gap(30),
                                     Text('Year : ${students[index].year}'),
                                   ],
                                 )

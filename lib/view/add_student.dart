@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_stdnt_mngmnt/control/provider.dart';
+import 'package:provider_stdnt_mngmnt/controls/provider.dart';
 
 // ignore: must_be_immutable
 class AddStudent extends StatelessWidget {
@@ -10,7 +10,7 @@ class AddStudent extends StatelessWidget {
   int? _age;
   String? _batch;
   int? _year;
-  String? _sex;
+  int? _roll;
 
   AddStudent({super.key});
 
@@ -30,7 +30,7 @@ class AddStudent extends StatelessWidget {
                 decoration: const InputDecoration(hintText: 'Name'),
                 onSaved: (value) => _name = value,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty || value.length < 3 || num.tryParse(value) != null) {
                     return 'Please enter a name';
                   }
                   return null;
@@ -44,7 +44,7 @@ class AddStudent extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       onSaved: (value) => _age = int.tryParse(value ?? ''),
                       validator: (value) {
-                        if (value == null || int.tryParse(value) == null) {
+                        if (value == null || int.tryParse(value) == null || value.length <= 2 ) {
                           return 'Please enter a valid age';
                         }
                         return null;
@@ -54,8 +54,9 @@ class AddStudent extends StatelessWidget {
                   const Gap(20),
                   Expanded(
                     child: TextFormField(
-                      decoration: const InputDecoration(hintText: 'Sex'),
-                      onSaved: (value) => _sex = value,
+                      decoration: const InputDecoration(hintText: 'Roll no'),
+                      keyboardType: TextInputType.number,
+                      onSaved: (value) => _roll = int.tryParse(value ?? ''),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter a batch';
@@ -102,7 +103,7 @@ class AddStudent extends StatelessWidget {
                     if (_formkey.currentState!.validate()) {
                       _formkey.currentState!.save();
                       Provider.of<StudentProvider>(context, listen: false)
-                          .addStudent(_name!, _age!, _sex!, _batch!, _year!);
+                          .addStudent(_name!, _age!, _roll!, _batch!, _year!);
                       Navigator.of(context).pop();
                     }
                   },

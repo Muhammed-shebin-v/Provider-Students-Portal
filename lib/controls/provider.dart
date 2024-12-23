@@ -8,12 +8,12 @@ class StudentProvider extends ChangeNotifier {
   final List<StudentModel> _students = [];
   List<StudentModel> get students => [..._students];
 
-  void addStudent(String name, int age,String sex, String batch, int year) {
+  void addStudent(String name, int age,int roll, String batch, int year) {
     final newStudent = StudentModel(
         id: DateTime.now().toString(),
         name: name,
         age: age,
-        sex: sex,
+        roll: roll,
         batch: batch,
         year: year);
     _students.add(newStudent);
@@ -21,14 +21,14 @@ class StudentProvider extends ChangeNotifier {
     log('user added');
   }
 
-  void updateStudent(String id, String name, int age,String sex ,String batch, int year) {
+  void updateStudent(String id, String name, int age,int roll ,String batch, int year) {
     final index = _students.indexWhere((student) => student.id == id);
     if (index >= 0) {
       _students[index] = StudentModel(
         id: id, 
         name: name, 
         age: age,
-        sex:sex,
+        roll:roll,
         batch: batch,
         year: year);
       notifyListeners();

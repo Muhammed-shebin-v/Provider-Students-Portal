@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_stdnt_mngmnt/control/provider.dart';
-import 'package:provider_stdnt_mngmnt/view/add_student.dart';
+import 'package:provider_stdnt_mngmnt/controls/provider.dart';
 import 'package:provider_stdnt_mngmnt/view/home_screen.dart';
 
 void main(){
@@ -14,8 +13,8 @@ class ProviderStudentManagment extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (ctx) => StudentProvider(),
-      child:  MaterialApp(
-        debugShowCheckedModeBanner: false,
+      child:  const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Provider student managment',
       home:HomeScreen (),
     )

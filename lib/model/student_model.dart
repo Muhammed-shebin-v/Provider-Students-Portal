@@ -4,14 +4,14 @@ class StudentModel {
   int age;
   String batch;
   int year;
-  String sex;
+  int roll;
 
   StudentModel(
     {
       required this.id,
       required this.name,
       required this.age,
-      required this.sex,
+      required this.roll,
       required this.batch,
       required this.year
     }
